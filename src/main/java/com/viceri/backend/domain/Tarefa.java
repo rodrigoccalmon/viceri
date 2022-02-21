@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Tarefa {
 	@Id
@@ -18,7 +20,8 @@ public class Tarefa {
 	private Long id;
 	private String descricaoTarefa;
 	private String prioridade;
-
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
@@ -58,7 +61,7 @@ public class Tarefa {
 	public void setPrioridade(String prioridade) {
 		this.prioridade = prioridade;
 	}
-
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
