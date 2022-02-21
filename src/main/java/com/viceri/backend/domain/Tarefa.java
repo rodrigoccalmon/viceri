@@ -16,7 +16,6 @@ public class Tarefa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_tarefa")
 	private Long id;
-
 	private String descricaoTarefa;
 	private String prioridade;
 

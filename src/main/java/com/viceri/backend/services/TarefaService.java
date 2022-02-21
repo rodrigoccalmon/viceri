@@ -93,6 +93,15 @@ public class TarefaService {
 		dto.setPrioridade(tarefa.getPrioridade());
 		dto.setUsuario(tarefa.getUsuario());
 		return dto;
+	}
 
+	public Tarefa update(Tarefa obj) {
+		Tarefa newObj = buscar(obj.getId());
+		updateData(newObj, obj);
+		return tarefaRepository.save(newObj);
+	}
+
+	private void updateData(Tarefa newObj, Tarefa obj) {
+		newObj.setPrioridade(obj.getPrioridade());
 	}
 }
