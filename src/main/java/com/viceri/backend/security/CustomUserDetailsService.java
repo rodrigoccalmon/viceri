@@ -1,4 +1,4 @@
-package com.viceri.backend.config;
+package com.viceri.backend.security;
 
 import java.util.Optional;
 import java.util.function.Supplier;

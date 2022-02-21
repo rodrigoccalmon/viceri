@@ -1,4 +1,4 @@
-package com.viceri.backend.config;
+package com.viceri.backend.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private CustomUserDetailsService customUserDetailsService;
-	
+	private CustomUserDetailsService customUserDetailsService;	
 	@Autowired
 	private JWTAuthenticationFilter jwtAuthenticationFilter;
 	@Bean

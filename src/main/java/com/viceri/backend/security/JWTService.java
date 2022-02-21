@@ -1,4 +1,4 @@
-package com.viceri.backend.config;
+package com.viceri.backend.security;
 
 import java.util.Date;
 import java.util.Optional;

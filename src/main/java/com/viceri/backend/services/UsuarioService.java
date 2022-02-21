@@ -13,10 +13,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.viceri.backend.domain.Usuario;
+import com.viceri.backend.dto.LoginResponse;
 import com.viceri.backend.repository.UsuarioRepository;
-
-import br.com.serratec.medportal4.dto.LoginResponse;
-import br.com.serratec.medportal4.security.JWTService;
+import com.viceri.backend.security.JWTService;
 
 @Service
 public class UsuarioService {

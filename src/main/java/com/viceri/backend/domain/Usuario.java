@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -21,15 +20,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @SequenceGenerator(name = "generator_usuario", sequenceName = "sequence_usuario", initialValue = 1, allocationSize = 1)
 public class Usuario implements UserDetails {
 
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_usuario")
 	@Column(name = "id_usuario")
 	private Long id;
 
 	private String nome;
+
 	private String email;
 
 	@OneToMany
+	@JsonIgnore
 	private List<Tarefa> tarefas;
 
 	private String senha;
@@ -37,19 +40,27 @@ public class Usuario implements UserDetails {
 	public Usuario() {
 	}
 
-	public Usuario(String nome, String email, String senha) {
+	public Usuario(String nome, String email, String senha, List<Tarefa> tarefas) {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.tarefas = tarefas;
 	}
 
-	public Usuario(Long id, String nome, String email, List<Tarefa> tarefas, String senha) {
+	public Usuario(Long id, String nome, String email, List<Tarefa> tarefas) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.tarefas = tarefas;
+	}
+
+	public Usuario(Long id, String nome, String email, String senha, List<Tarefa> tarefas) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
 		this.senha = senha;
+		this.tarefas = tarefas;
 	}
 
 	public List<Tarefa> getTarefas() {
@@ -131,6 +142,7 @@ public class Usuario implements UserDetails {
 	@JsonIgnore
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

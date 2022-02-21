@@ -1,4 +1,4 @@
-package com.viceri.backend.config;
+package com.viceri.backend.security;
 
 import java.io.IOException;
 import java.util.Collections;
