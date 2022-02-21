@@ -79,6 +79,7 @@ public class TarefaController {
 	public List<Tarefa> listar() {
 		return tarefaService.listar();
 	}
+
 	@DeleteMapping(path = "/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
 		if (!tarefaService.idExisteTarefa(id)) {
@@ -88,6 +89,3 @@ public class TarefaController {
 		return ResponseEntity.noContent().build();
 	}
 }
-	
-
-
