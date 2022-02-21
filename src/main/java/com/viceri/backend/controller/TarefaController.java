@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -78,5 +79,15 @@ public class TarefaController {
 	public List<Tarefa> listar() {
 		return tarefaService.listar();
 	}
-
+	@DeleteMapping(path = "/{id}")
+	public ResponseEntity<Void> remover(@PathVariable Long id) {
+		if (!tarefaService.idExisteTarefa(id)) {
+			return ResponseEntity.notFound().build();
+		}
+		tarefaService.removerTarefa(id);
+		return ResponseEntity.noContent().build();
+	}
 }
+	
+
+
