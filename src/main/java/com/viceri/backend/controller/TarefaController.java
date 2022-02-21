@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api/tarefas")
 public class TarefaController {
-	
+
 	// @AuthenticationPrincipal Usuario logado no método post?
 
 	@Autowired
@@ -52,15 +52,14 @@ public class TarefaController {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@ApiOperation(value = "atualizar tarefa via id")
+	@ApiOperation(value = "atualizar tarefa via id, " + "não precisa preencher todos os campos, "
+			+ "apenas o que deseje alterar")
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> atualizar(@PathVariable Long id, String prioridade, @RequestBody Tarefa tarefa) {
-		if (tarefaService.idExisteTarefa(id)) {
-			return ResponseEntity.notFound().build();
-		}
-		tarefa.setId(id);
-		tarefa = tarefaService.updateTarefa(tarefa);
-		return ResponseEntity.ok(tarefa);
+	public ResponseEntity<Void> update(@Valid @RequestBody TarefaDTO tarefa, @PathVariable Long id) {
+		Tarefa obj = tarefaService.fromDTO(tarefa);
+		obj.setId(id);
+		obj = tarefaService.update(obj);
+		return ResponseEntity.noContent().build();
 	}
 
 	// pesquisar por tarefa de usuario
@@ -68,9 +67,16 @@ public class TarefaController {
 	public List<TarefaDTO> listarPorUsuario(@PathVariable Long idUsuario) {
 		return tarefaService.listarPorUsuario(idUsuario);
 	}
-	@ApiOperation(value = "pesquisar por prioridade - alta, média ou baixa") 
+
+	@ApiOperation(value = "pesquisar por prioridade - alta, média ou baixa")
 	@GetMapping(path = "/find")
 	public ResponseEntity<List<Tarefa>> findByPrioridade(@RequestParam String prioridade) {
 		return ResponseEntity.ok(tarefaService.pesquisarPorStatus(prioridade));
 	}
+
+	@GetMapping("/todas")
+	public List<Tarefa> listar() {
+		return tarefaService.listar();
+	}
+
 }

@@ -25,7 +25,7 @@ public class TarefaService {
 		return tarefaRepository.save(tarefa);
 	}
 
-	public List<Tarefa> pesquisarTarefa() {
+	public List<Tarefa> listar() {
 		return tarefaRepository.findAll();
 	}
 
@@ -103,5 +103,8 @@ public class TarefaService {
 
 	private void updateData(Tarefa newObj, Tarefa obj) {
 		newObj.setPrioridade(obj.getPrioridade());
+	}
+	public Tarefa fromDTO(TarefaDTO objDto) {
+		return new Tarefa(objDto.getId(), objDto.getDescricaoTarefa(), objDto.getPrioridade(), objDto.getUsuario());
 	}
 }
