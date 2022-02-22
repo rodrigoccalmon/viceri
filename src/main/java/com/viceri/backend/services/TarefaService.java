@@ -68,6 +68,7 @@ public class TarefaService {
 			t.get().setDescricaoTarefa(tarefa.getDescricaoTarefa());
 			t.get().setPrioridade(tarefa.getPrioridade());
 			t.get().setUsuario(tarefa.getUsuario());
+			t.get().setTarefaConcluida(tarefa.isTarefaConcluida());
 			return tarefaRepository.save(t.get());
 		}
 		throw new IllegalArgumentException("ID não encontrado. ");
@@ -91,6 +92,7 @@ public class TarefaService {
 		dto.setId(tarefa.getId());
 		dto.setDescricaoTarefa(tarefa.getDescricaoTarefa());
 		dto.setPrioridade(tarefa.getPrioridade());
+		dto.setTarefaConcluida(tarefa.isTarefaConcluida());
 		dto.setUsuario(tarefa.getUsuario());
 		return dto;
 	}
@@ -105,6 +107,6 @@ public class TarefaService {
 		newObj.setPrioridade(obj.getPrioridade());
 	}
 	public Tarefa fromDTO(TarefaDTO objDto) {
-		return new Tarefa(objDto.getId(), objDto.getDescricaoTarefa(), objDto.getPrioridade(), objDto.getUsuario());
+		return new Tarefa(objDto.getId(), objDto.getDescricaoTarefa(), objDto.getPrioridade(), objDto.isTarefaConcluida(), objDto.getUsuario());
 	}
 }

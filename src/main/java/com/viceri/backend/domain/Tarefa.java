@@ -20,6 +20,7 @@ public class Tarefa {
 	private Long id;
 	private String descricaoTarefa;
 	private String prioridade;
+	private boolean tarefaConcluida;
 	
 	
 	@ManyToOne
@@ -30,12 +31,13 @@ public class Tarefa {
 
 	}
 
-	public Tarefa(Long id, String descricaoTarefa, String prioridade, Usuario usuario) {
+	public Tarefa(Long id, String descricaoTarefa, String prioridade, boolean tarefaConcluida, Usuario usuario) {
 		super();
 		this.id = id;
 		this.descricaoTarefa = descricaoTarefa;
 		this.prioridade = prioridade;
 		this.usuario = usuario;
+		this.tarefaConcluida = tarefaConcluida;
 	}
 
 	public Long getId() {
@@ -65,7 +67,7 @@ public class Tarefa {
 	public Usuario getUsuario() {
 		return usuario;
 	}
-
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
@@ -85,6 +87,14 @@ public class Tarefa {
 			return false;
 		Tarefa other = (Tarefa) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public boolean isTarefaConcluida() {
+		return tarefaConcluida;
+	}
+
+	public void setTarefaConcluida(boolean tarefaConcluida) {
+		this.tarefaConcluida = tarefaConcluida;
 	}
 
 }
