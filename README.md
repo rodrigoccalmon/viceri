@@ -1,7 +1,11 @@
 -Utilizar Spring Boot para rodar a aplicação
+______________
 -datasource.url: spring.datasource.url=jdbc:postgresql://localhost:5432/viceri
+______________
 -Criar DATABASE no banco de dados com o nome "viceri".
+______________
 -Após executar a aplicação pela primeira vez, o hibernate vai criar a base de dados e fazer as relações entre as tabelas.
+______________
 -URL do swagger: http://localhost:8080/swagger-ui/index.html#/
 ______________
 
