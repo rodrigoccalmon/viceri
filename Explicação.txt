@@ -3,7 +3,7 @@ Me chamo Rodrigo e agradeço a oportunidade de fazer o teste para Viceri.
 Espero que seja suficiente para passar para próxima etapa.
 
 A aplicação era construir uma API para um aplicativo de tarefas (to-do list)
-Pelo que entendi, um usuário poderia ter várias tarefas, portando, um relacionamento de 1 para N*. 
+Pelo que entendi, um usuário poderia ter várias tarefas, portando, um relacionamento de 1 para N*, bem como o relacionamento de N* para 1 do lado de Tarefas para Usuário. 
 Utilizei o JPA para mapear o objeto-relacional de objetos.
 Com intuito de diminuir a complexidade, utilizei o Hibernate que gera o código SQL para qualquer banco de dados.
 
