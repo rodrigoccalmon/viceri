@@ -48,7 +48,8 @@ ___________
 
 Alterar a prioridade ou qualquer atributo da tarefa:
 método: PUT
-url: localhost:8080/api/tarefas/1 - obs: não precisa passar todos os campos novamente, apenas aquele que deseje alterar.
+url: localhost:8080/api/tarefas/{id} - ex: localhost:8080/api/tarefas/1 
+- obs: não precisa passar todos os campos novamente, apenas aquele que deseje alterar.
 
 ___________
 
