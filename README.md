@@ -1,4 +1,4 @@
--Utilizar Spring Boot para rodar a aplicação
+-Utilizar Spring Tool Suite para rodar a aplicação
 ______________
 -datasource.url: spring.datasource.url=jdbc:postgresql://localhost:5432/viceri
 ______________
