@@ -1,0 +1,19 @@
+Olá,
+Me chamo Rodrigo e agradeço a oportunidade de fazer o teste para Viceri. 
+Espero que seja suficiente para passar para próxima etapa.
+
+A aplicação era construir uma API para um aplicativo de tarefas (to-do list)
+Pelo que entendi, um usuário poderia ter várias tarefas, portando, um relacionamento de 1 para N*. 
+Utilizei o JPA para mapear o objeto-relacional de objetos.
+Com intuito de diminuir a complexidade, utilizei o Hibernate que gera o código SQL para qualquer banco de dados.
+
+Para dar segurança aos usuários do aplicativo, segui as orientações e armazenei a senha de maneira criptografada utilizando o BCrypt.
+Quando um usuário se cadastra e digita a sua respectiva senha, o BCrypt se encarrega de criptografar a senha deste usuário. No Banco de dados essa senha cadastrada será armazenada de forma criptografada também.
+
+Ainda em relação a segurança da aplicação foi implementado o token JWT, como forma de uma segurança adicional. Ao realizar o login de um usário cadastrado anteriormente, um token será gerado para que ele possa navegar pelo aplicativo e utilizá-lo de maneira segura e confiável. 
+
+A API foi documentada no Swagger conforme solicitado.
+
+Os endpoints para o front-end estão disponibilizados tanto no readme.md quanto no arquivo "endpoints" na main.
+
+Quis ter um end-point específico onde trago as tarefas de cada usuário, pois isso facilitará o front-end na hora de mostrar na tela somente a tarefa daquele respectivo usuário. 
