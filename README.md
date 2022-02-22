@@ -67,4 +67,4 @@ ___________
 atualizar status booleano de tarefa concluida
 método: PUT
 url: localhost:8080/api/tarefas/atualizartarefa/{id} - exemplo: localhost:8080/api/tarefas/atualizartarefa/1
-Não precisa passar todos os campos, apenas alterar o atributo booleano de tarefaConcluida.
+Não precisa passar todos os campos, apenas alterar o atributo booleano de tarefaConcluida
